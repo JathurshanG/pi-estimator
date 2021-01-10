@@ -21,9 +21,7 @@ def is_point_inside_unit_circle(_):
     return 1 if x*x + y*y < 1 else 0
 #Cette Fonction permet de determiner si le point choisit aléatoirement va être dans notre cercle. si 1 alors le point
 #figure dans le cercle 0 sinon
-
 #1) Définissons une fonction Permettant de Calculer Spark en utilisant Spark
-
 
 def pi_spark(n):
       t_0=time()
