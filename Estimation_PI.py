@@ -57,7 +57,7 @@ n_sample=100000
 pi_spark(n_sample)
 numpy_pi(n_sample)
 
-#☻pour n=1.000.000
+#pour n=1.000.000
 n1_sample= 1000000
 pi_spark(n1_sample)
 numpy_pi(n1_sample)
