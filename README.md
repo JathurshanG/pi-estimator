@@ -1,6 +1,6 @@
 <h1><center> Pi - Estimator </center></h1>
 
-Le projet a pour but de determiner la valeur de Pi en utilisant Spark et Numpy. La finalité du projet est de faire une étude comparative entre ces derniers et déterminer le plus performant
+Le projet a pour but de determiner la valeur de Pi en utilisant Spark et Numpy. La finalité du projet est de faire une étude comparative entre ces derniers et déterminer le plus performant.
 Le projet a donné les résultats suivants :
 
 - Pour n=100.000
