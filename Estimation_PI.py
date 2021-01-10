@@ -23,39 +23,40 @@ def is_point_inside_unit_circle(_):
 #figure dans le cercle 0 sinon
 
 #1) Définissons une fonction Permettant de Calculer Spark en utilisant Spark
+
+
 def pi_spark(n):
-    #1) Création d'un RDD avec la fonction is_point_inside_unit_circle
-    count = sc.parallelize(range(0, n)).map(is_point_inside_unit_circle) \
-    .reduce(add)
-    # 2) reduce(add) permet de faire la somme des tous les RDD ainsi nous aurons le nombre total de point qui sont
-    # présent dans count
-    #3) Calcul de PI
-    spi= 4.0 * count / n
-    print("Pi est environ égale à avec Spark %f" % (4.0 * count / n))
-    # 4) estimation du temps afin d'executer le timer
-    t_0=time()
-    print(time() - t_0, "temps d'exécution avec n=", n)
-    print("la difference avec math.pi est de ",(spi-math.pi ))
+      t_0=time()
+      #1) Création d'un RDD avec la fonction is_point_inside_unit_circle
+      count = sc.parallelize(range(0, n)).map(is_point_inside_unit_circle) \
+      .reduce(add)
+      # 2) reduce(add) permet de faire la somme des tous les RDD ainsi nous aurons le nombre total de point qui sont
+      # présent dans coun#3) Calcul de PI
+      print("Pi est environ egale à avec Spark %f" % (4.0 * count / n))
+      #4) estimation du temps afin d'executer le timer
+      print(time() - t_0, "temps d'execution avec n=", n)
 
 
 def numpy_pi(n):
+    t_0=time()
     matrix = np.zeros((n,1))
     for i in range(0,n):
         matrix[i,:] = is_point_inside_unit_circle(1)
     count=np.sum(matrix)
     npi=4*(count/n)
-    print("pi est environ égale avec numpy",npi)    
-    t_0=time()
-    print(time() - t_0, "temps d'exécution avec n=", n)
+    print("pi est environ egale avec numpy",npi)    
+    print(time() - t_0, "temps d'execution avec n=", n)
     print("la difference avec math.pi est de ",(npi-math.pi ))
      
 
-n_sample=1000000000
-print(pi_spark(n_sample))
+n_sample=100000
+pi_spark(n_sample)
+numpy_pi(n_sample)
 
-print(numpy_pi(n_sample))
-
-# Erreur de différence avec math.pi
+#☻pour n=1.000.000
+n1_sample= 1000000
+pi_spark(n1_sample)
+numpy_pi(n1_sample)
 
 #arreter Spark
 sc.stop()
