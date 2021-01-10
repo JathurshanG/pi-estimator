@@ -32,9 +32,12 @@ def pi_spark(n):
       .reduce(add)
       # 2) reduce(add) permet de faire la somme des tous les RDD ainsi nous aurons le nombre total de point qui sont
       # présent dans coun#3) Calcul de PI
-      print("Pi est environ egale à avec Spark %f" % (4.0 * count / n))
+      spi=(4.0 * count / n)
+      print("############ Spark ###################")
+      print("Pi est environ egale à avec Spark ", spi )
       #4) estimation du temps afin d'executer le timer
       print(time() - t_0, "temps d'execution avec n=", n)
+      print("La différence avec math.pi est de ", (spi-math.pi))
 
 
 def numpy_pi(n):
@@ -44,6 +47,7 @@ def numpy_pi(n):
         matrix[i,:] = is_point_inside_unit_circle(1)
     count=np.sum(matrix)
     npi=4*(count/n)
+    print("######## Numpy ###########")
     print("pi est environ egale avec numpy",npi)    
     print(time() - t_0, "temps d'execution avec n=", n)
     print("la difference avec math.pi est de ",(npi-math.pi ))
